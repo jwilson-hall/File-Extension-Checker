@@ -79,12 +79,9 @@ namespace File_Extension_Checker
             }
             catch (Exception e)
             {
-                MessageBox.Show("File Un-readable");
+                MessageBox.Show("File Un-readable: "+e);
             }
-
-
         }
-    }
     //-------------------------Functions-----------------------------
     //-------------------------Form Events-----------------------------
     private void btn_SelectFiles_Click(object sender, EventArgs e)
