@@ -60,11 +60,7 @@ namespace File_Extension_Checker
                 txt_output.Text += file;
                 txt_output.Text += Environment.NewLine;
                 fileObjects.Add(new fileObject(Path.GetExtension(file), file, ""));
-            }
-            foreach (var item in fileObjects)
-            {
-                Console.WriteLine(item.fileDirectory);
-            }
+            } 
         }
         private void btn_ScanFiles_Click(object sender, EventArgs e)
         {
