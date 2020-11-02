@@ -41,6 +41,7 @@ namespace File_Extension_Checker
             new fileType(".jpeg", "FFD8FFFE"),
             new fileType(".rar", "52617221"),
         };
+        public static List<string> fileHexData = new List<string>();
         OpenFileDialog ofd = new OpenFileDialog();
         //-------------------------Variables-----------------------------
         //-------------------------Functions-----------------------------
@@ -48,9 +49,45 @@ namespace File_Extension_Checker
         {
             txt_output.Text = "";
         }
-        //-------------------------Functions-----------------------------
-        //-------------------------Form Events-----------------------------
-        private void btn_SelectFiles_Click(object sender, EventArgs e)
+        private void FileByteScan(string filedirectory)
+        {
+            try
+            {
+                using (var file = File.Open(filedirectory, FileMode.Open))
+                {
+                    int i = 0;
+                    int bytes;
+                    string eachfilehex = "";
+                    while ((bytes = file.ReadByte()) >= 0)
+                    {
+
+                        i++;
+                        string s = bytes.ToString("X");
+                        if (s.Length < 2)
+                        {
+                            s = "0" + s;
+                        }
+                        eachfilehex = eachfilehex + s;
+                        if (i == 28)
+                        {
+                            fileHexData.Add(eachfilehex);
+                            //Console.WriteLine(eachfilehex);
+                            break;
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("File Un-readable");
+            }
+
+
+        }
+    }
+    //-------------------------Functions-----------------------------
+    //-------------------------Form Events-----------------------------
+    private void btn_SelectFiles_Click(object sender, EventArgs e)
         {
             clearall();
             ofd.Multiselect = true;
