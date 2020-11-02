@@ -17,10 +17,15 @@ namespace File_Extension_Checker
         public Main()
         {
             InitializeComponent();
-            Console.WriteLine(test.headerPlusExtension[".png"].);
+            Console.WriteLine();
         }
 
         private void btn_SelectFiles_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Main_Load(object sender, EventArgs e)
         {
 
         }
