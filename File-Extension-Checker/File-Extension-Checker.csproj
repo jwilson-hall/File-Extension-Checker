@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F4DF7ED2-A998-431E-B83A-595E8A31402B}</ProjectGuid>
+    <ProjectGuid>{08B6E9DA-E975-4D52-AB70-C9749B1E5B57}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>File_Extension_Checker</RootNamespace>
-    <AssemblyName>File Extension Checker</AssemblyName>
+    <AssemblyName>File-Extension-Checker</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DarkUI">
+      <HintPath>..\..\MessengerApp\DarkUI\DarkUI\bin\Debug\DarkUI.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -46,6 +49,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="assets\FileInformation.cs" />
+    <Compile Include="assets\fileObject.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>

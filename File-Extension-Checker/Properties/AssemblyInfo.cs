@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("File Extension Checker")]
+[assembly: AssemblyTitle("File-Extension-Checker")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("File Extension Checker")]
+[assembly: AssemblyProduct("File-Extension-Checker")]
 [assembly: AssemblyCopyright("Copyright ©  2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("f4df7ed2-a998-431e-b83a-595e8a31402b")]
+[assembly: Guid("08b6e9da-e975-4d52-ab70-c9749b1e5b57")]
 
 // Version information for an assembly consists of the following four values:
 //
