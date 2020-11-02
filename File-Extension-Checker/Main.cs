@@ -4,8 +4,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -23,6 +25,7 @@ namespace File_Extension_Checker
         {
 
         }
+        //-------------------------Variables-----------------------------
         private List<fileObject> fileObjects = new List<fileObject>();
         private List<fileType> filetpyes = new List<fileType>() {
             new fileType(".png", "89504E47"),
@@ -38,21 +41,39 @@ namespace File_Extension_Checker
             new fileType(".jpeg", "FFD8FFFE"),
             new fileType(".rar", "52617221"),
         };
-        
+        OpenFileDialog ofd = new OpenFileDialog();
+        //-------------------------Variables-----------------------------
+        //-------------------------Functions-----------------------------
+        private void clearall()
+        {
+            txt_output.Text = "";
+        }
+        //-------------------------Functions-----------------------------
+        //-------------------------Form Events-----------------------------
         private void btn_SelectFiles_Click(object sender, EventArgs e)
         {
-
+            clearall();
+            ofd.Multiselect = true;
+            ofd.ShowDialog();
+            foreach (string file in ofd.FileNames)
+            {
+                txt_output.Text += file;
+                txt_output.Text += Environment.NewLine;
+                fileObjects.Add(new fileObject(Path.GetExtension(file), file, ""));
+            }
+            foreach (var item in fileObjects)
+            {
+                Console.WriteLine(item.fileDirectory);
+            }
         }
-
-
         private void btn_ScanFiles_Click(object sender, EventArgs e)
         {
 
         }
-
         private void btn_FixFIles_Click(object sender, EventArgs e)
         {
 
         }
+        //-------------------------Form Events-----------------------------
     }
 }

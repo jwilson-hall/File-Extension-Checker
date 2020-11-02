@@ -36,6 +36,7 @@
             // 
             // btn_SelectFiles
             // 
+            this.btn_SelectFiles.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
             this.btn_SelectFiles.Location = new System.Drawing.Point(12, 12);
             this.btn_SelectFiles.Name = "btn_SelectFiles";
             this.btn_SelectFiles.Padding = new System.Windows.Forms.Padding(5);
@@ -46,18 +47,24 @@
             // 
             // txt_output
             // 
+            this.txt_output.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_output.BackColor = System.Drawing.Color.Black;
             this.txt_output.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_output.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_output.ForeColor = System.Drawing.Color.Green;
             this.txt_output.Location = new System.Drawing.Point(191, 12);
             this.txt_output.Multiline = true;
             this.txt_output.Name = "txt_output";
             this.txt_output.ReadOnly = true;
-            this.txt_output.Size = new System.Drawing.Size(549, 468);
+            this.txt_output.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txt_output.Size = new System.Drawing.Size(561, 468);
             this.txt_output.TabIndex = 1;
             // 
             // btn_FixFIles
             // 
+            this.btn_FixFIles.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_FixFIles.Location = new System.Drawing.Point(12, 160);
             this.btn_FixFIles.Name = "btn_FixFIles";
             this.btn_FixFIles.Padding = new System.Windows.Forms.Padding(5);
@@ -68,6 +75,7 @@
             // 
             // btn_ScanFiles
             // 
+            this.btn_ScanFiles.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_ScanFiles.Location = new System.Drawing.Point(12, 85);
             this.btn_ScanFiles.Name = "btn_ScanFiles";
             this.btn_ScanFiles.Padding = new System.Windows.Forms.Padding(5);
