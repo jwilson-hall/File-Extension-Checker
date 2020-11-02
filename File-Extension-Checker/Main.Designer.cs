@@ -52,6 +52,7 @@
             this.txt_output.Location = new System.Drawing.Point(191, 12);
             this.txt_output.Multiline = true;
             this.txt_output.Name = "txt_output";
+            this.txt_output.ReadOnly = true;
             this.txt_output.Size = new System.Drawing.Size(549, 468);
             this.txt_output.TabIndex = 1;
             // 
@@ -63,6 +64,7 @@
             this.btn_FixFIles.Size = new System.Drawing.Size(173, 51);
             this.btn_FixFIles.TabIndex = 2;
             this.btn_FixFIles.Text = "Fix Files";
+            this.btn_FixFIles.Click += new System.EventHandler(this.btn_FixFIles_Click);
             // 
             // btn_ScanFiles
             // 
@@ -72,6 +74,7 @@
             this.btn_ScanFiles.Size = new System.Drawing.Size(173, 51);
             this.btn_ScanFiles.TabIndex = 3;
             this.btn_ScanFiles.Text = "Scan Files";
+            this.btn_ScanFiles.Click += new System.EventHandler(this.btn_ScanFiles_Click);
             // 
             // Main
             // 
@@ -84,7 +87,7 @@
             this.Controls.Add(this.txt_output);
             this.Controls.Add(this.btn_SelectFiles);
             this.Name = "Main";
-            this.Text = "Form1";
+            this.Text = "File Extension Checker";
             this.Load += new System.EventHandler(this.Main_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

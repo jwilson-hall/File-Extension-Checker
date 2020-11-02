@@ -49,7 +49,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="assets\FileInformation.cs" />
     <Compile Include="assets\fileObject.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>

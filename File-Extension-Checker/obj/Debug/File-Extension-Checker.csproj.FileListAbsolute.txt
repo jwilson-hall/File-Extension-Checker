@@ -11,3 +11,15 @@ C:\Users\josep\source\repos\File-Extension-Checker\File-Extension-Checker\obj\De
 C:\Users\josep\source\repos\File-Extension-Checker\File-Extension-Checker\obj\Debug\File-Extension-Checker.csproj.CopyComplete
 C:\Users\josep\source\repos\File-Extension-Checker\File-Extension-Checker\obj\Debug\File-Extension-Checker.exe
 C:\Users\josep\source\repos\File-Extension-Checker\File-Extension-Checker\obj\Debug\File-Extension-Checker.pdb
+C:\Users\josep\OneDrive - Cardiff University\repos\!C# - Workspace\File-Extension-Checker\File-Extension-Checker\bin\Debug\File-Extension-Checker.exe.config
+C:\Users\josep\OneDrive - Cardiff University\repos\!C# - Workspace\File-Extension-Checker\File-Extension-Checker\bin\Debug\File-Extension-Checker.exe
+C:\Users\josep\OneDrive - Cardiff University\repos\!C# - Workspace\File-Extension-Checker\File-Extension-Checker\bin\Debug\File-Extension-Checker.pdb
+C:\Users\josep\OneDrive - Cardiff University\repos\!C# - Workspace\File-Extension-Checker\File-Extension-Checker\bin\Debug\DarkUI.pdb
+C:\Users\josep\OneDrive - Cardiff University\repos\!C# - Workspace\File-Extension-Checker\File-Extension-Checker\obj\Debug\File-Extension-Checker.csprojAssemblyReference.cache
+C:\Users\josep\OneDrive - Cardiff University\repos\!C# - Workspace\File-Extension-Checker\File-Extension-Checker\obj\Debug\File_Extension_Checker.Main.resources
+C:\Users\josep\OneDrive - Cardiff University\repos\!C# - Workspace\File-Extension-Checker\File-Extension-Checker\obj\Debug\File_Extension_Checker.Properties.Resources.resources
+C:\Users\josep\OneDrive - Cardiff University\repos\!C# - Workspace\File-Extension-Checker\File-Extension-Checker\obj\Debug\File-Extension-Checker.csproj.GenerateResource.cache
+C:\Users\josep\OneDrive - Cardiff University\repos\!C# - Workspace\File-Extension-Checker\File-Extension-Checker\obj\Debug\File-Extension-Checker.csproj.CoreCompileInputs.cache
+C:\Users\josep\OneDrive - Cardiff University\repos\!C# - Workspace\File-Extension-Checker\File-Extension-Checker\obj\Debug\File-Extension-Checker.csproj.CopyComplete
+C:\Users\josep\OneDrive - Cardiff University\repos\!C# - Workspace\File-Extension-Checker\File-Extension-Checker\obj\Debug\File-Extension-Checker.exe
+C:\Users\josep\OneDrive - Cardiff University\repos\!C# - Workspace\File-Extension-Checker\File-Extension-Checker\obj\Debug\File-Extension-Checker.pdb
