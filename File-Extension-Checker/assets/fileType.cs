@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace File_Extension_Checker.assets
+﻿namespace File_Extension_Checker.assets
 {
     class fileType
     {

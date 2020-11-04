@@ -41,6 +41,7 @@ namespace File_Extension_Checker
             new fileType(".jpeg", "FFD8FFFE"),
             new fileType(".rar", "52617221"),
         };
+        private List<fileObject> fileCorrection = new List<fileObject>();
         public static List<string> fileHexData = new List<string>();
         OpenFileDialog ofd = new OpenFileDialog();
         //-------------------------Variables-----------------------------
@@ -49,7 +50,7 @@ namespace File_Extension_Checker
         {
             txt_output.Text = "";
         }
-        private void FileByteScan(string filedirectory)
+        private string FileByteScan(string filedirectory)
         {
             try
             {
@@ -68,11 +69,9 @@ namespace File_Extension_Checker
                             s = "0" + s;
                         }
                         eachfilehex = eachfilehex + s;
-                        if (i == 28)
+                        if (i == 16)
                         {
-                            fileHexData.Add(eachfilehex);
-                            //Console.WriteLine(eachfilehex);
-                            break;
+                            return eachfilehex;
                         }
                     }
                 }
@@ -81,6 +80,7 @@ namespace File_Extension_Checker
             {
                 MessageBox.Show("File Un-readable: "+e);
             }
+            return "";
         }
     //-------------------------Functions-----------------------------
     //-------------------------Form Events-----------------------------
@@ -91,14 +91,31 @@ namespace File_Extension_Checker
             ofd.ShowDialog();
             foreach (string file in ofd.FileNames)
             {
-                txt_output.Text += file;
+                txt_output.Text += Path.GetFileName(file);
                 txt_output.Text += Environment.NewLine;
-                fileObjects.Add(new fileObject(Path.GetExtension(file), file, ""));
+                fileObjects.Add(new fileObject(Path.GetExtension(file), file, FileByteScan(file)));
             } 
         }
         private void btn_ScanFiles_Click(object sender, EventArgs e)
         {
+            for (int i = 0; i < fileObjects.Count-1; i++)
+            {
+                for (int j = 0; j < filetpyes.Count-1; j++)
+                {
+                    if (fileObjects[i].fileHeaderInfo.Contains(filetpyes[j].fileHeader))
+                    {
+                        if (fileObjects[i].fileExtension!=filetpyes[j].fileExtention)
+                        {
+                            fileObjects[i].fileExtension = filetpyes[j].fileExtention;
+                            fileCorrection.Add(fileObjects[i]);
+                            txt_output.Text += "File type did not match extension :" +Path.GetFileName(fileObjects[i].fileDirectory)+" : "+ filetpyes[j].fileExtention;
+                            txt_output.Text += Environment.NewLine;
+                        }
+                        
+                    }
 
+                }
+            }
         }
         private void btn_FixFIles_Click(object sender, EventArgs e)
         {
