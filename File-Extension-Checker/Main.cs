@@ -106,10 +106,12 @@ namespace File_Extension_Checker
                     {
                         if (fileObjects[i].fileExtension!=filetpyes[j].fileExtention)
                         {
-                            fileObjects[i].fileExtension = filetpyes[j].fileExtention;
-                            fileCorrection.Add(fileObjects[i]);
                             txt_output.Text += "File type did not match extension :" +Path.GetFileName(fileObjects[i].fileDirectory)+" : "+ filetpyes[j].fileExtention;
                             txt_output.Text += Environment.NewLine;
+                            Console.WriteLine("File Object "+fileObjects[i].fileExtension);
+                            Console.WriteLine("File type " + filetpyes[j].fileExtention);
+                            fileObjects[i].fileExtension = filetpyes[j].fileExtention;
+                            fileCorrection.Add(fileObjects[i]);
                         }
                         
                     }
