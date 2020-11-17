@@ -34,19 +34,25 @@ namespace File_Extension_Checker
             new fileType(".bmp", "424DF8A9"),
             new fileType(".bmp", "424D6225"),
             new fileType(".bmp", "424D7603"),
+            new fileType(".bmp", "424D36FB"),
             new fileType(".gif", "474946383961"),
             new fileType(".gif", "474946383761"),
-            new fileType(".jpeg", "FFD8FFE1"),
-            new fileType(".jpeg", "FFD8FFE0"),
-            new fileType(".jpeg", "FFD8FFFE"),
+            new fileType(".jpg", "FFD8FFE1"),
+            new fileType(".jpg", "FFD8FFE0"),
+            new fileType(".jpg", "FFD8FFFE"),
             new fileType(".rar", "52617221"),
         };
         private List<fileObject> fileCorrection = new List<fileObject>();
-        public static List<string> fileHexData = new List<string>();
         OpenFileDialog ofd = new OpenFileDialog();
         //-------------------------Variables-----------------------------
         //-------------------------Functions-----------------------------
         private void clearall()
+        {
+            txt_output.Text = "";
+            fileCorrection.Clear();
+            fileObjects.Clear();
+        }
+        private void clearTxt()
         {
             txt_output.Text = "";
         }
@@ -86,6 +92,7 @@ namespace File_Extension_Checker
     //-------------------------Form Events-----------------------------
     private void btn_SelectFiles_Click(object sender, EventArgs e)
         {
+            ofd.Reset();
             clearall();
             ofd.Multiselect = true;
             ofd.ShowDialog();
@@ -98,30 +105,48 @@ namespace File_Extension_Checker
         }
         private void btn_ScanFiles_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < fileObjects.Count-1; i++)
+            clearTxt();
+            for (int i = 0; i < fileObjects.Count; i++)
             {
-                for (int j = 0; j < filetpyes.Count-1; j++)
+                for (int j = 0; j < filetpyes.Count; j++)
                 {
                     if (fileObjects[i].fileHeaderInfo.Contains(filetpyes[j].fileHeader))
                     {
-                        if (fileObjects[i].fileExtension!=filetpyes[j].fileExtention)
+                        if (fileObjects[i].fileExtension.ToLower()!=filetpyes[j].fileExtention.ToLower())
                         {
-                            txt_output.Text += "File type did not match extension :" +Path.GetFileName(fileObjects[i].fileDirectory)+" : "+ filetpyes[j].fileExtention;
+                            txt_output.Text += "File type did not match extension : " +Path.GetFileName(fileObjects[i].fileDirectory)+" : "+ filetpyes[j].fileExtention;
                             txt_output.Text += Environment.NewLine;
                             Console.WriteLine("File Object "+fileObjects[i].fileExtension);
                             Console.WriteLine("File type " + filetpyes[j].fileExtention);
                             fileObjects[i].fileExtension = filetpyes[j].fileExtention;
                             fileCorrection.Add(fileObjects[i]);
                         }
+                        else
+                        {
+                            txt_output.Text += "File type match's extension : " + Path.GetFileName(fileObjects[i].fileDirectory);
+                            txt_output.Text += Environment.NewLine;
+                        }
                         
                     }
-
+                    else if (!fileObjects[i].fileHeaderInfo.Contains(filetpyes[j].fileHeader) && j == filetpyes.Count)
+                    {
+                        txt_output.ForeColor = Color.Red;
+                        txt_output.Text += "File type does not match records : " + Path.GetFileName(fileObjects[i].fileDirectory);
+                        txt_output.Text += Environment.NewLine;
+                        txt_output.ForeColor = Color.Green;
+                    }
                 }
             }
         }
         private void btn_FixFIles_Click(object sender, EventArgs e)
         {
-
+            clearTxt();
+            for (int i = 0; i < fileCorrection.Count; i++)
+            {
+                File.Move(fileCorrection[i].fileDirectory, Path.ChangeExtension(fileCorrection[i].fileDirectory, fileCorrection[i].fileExtension));
+                txt_output.Text += "File has been corrected: " + Path.GetFileName(fileCorrection[i].fileDirectory);
+                txt_output.Text += Environment.NewLine;
+            }
         }
         //-------------------------Form Events-----------------------------
     }
