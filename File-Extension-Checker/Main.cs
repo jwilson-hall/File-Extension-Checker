@@ -19,7 +19,7 @@ namespace File_Extension_Checker
         public Main()
         {
             InitializeComponent();
-            Console.WriteLine();
+            
         }
         private void Main_Load(object sender, EventArgs e)
         {
@@ -56,6 +56,7 @@ namespace File_Extension_Checker
         {
             txt_output.Text = "";
         }
+        
         private string FileByteScan(string filedirectory)
         {
             try
@@ -114,26 +115,24 @@ namespace File_Extension_Checker
                     {
                         if (fileObjects[i].fileExtension.ToLower()!=filetpyes[j].fileExtention.ToLower())
                         {
-                            txt_output.Text += "File type did not match extension : " +Path.GetFileName(fileObjects[i].fileDirectory)+" : "+ filetpyes[j].fileExtention;
-                            txt_output.Text += Environment.NewLine;
-                            Console.WriteLine("File Object "+fileObjects[i].fileExtension);
-                            Console.WriteLine("File type " + filetpyes[j].fileExtention);
+                            txt_output.SelectionColor = Color.Red;
+                            txt_output.SelectedText += Environment.NewLine + "File type did not match extension : " + Path.GetFileName(fileObjects[i].fileDirectory) + " : " + filetpyes[j].fileExtention;
                             fileObjects[i].fileExtension = filetpyes[j].fileExtention;
                             fileCorrection.Add(fileObjects[i]);
+                            break;
                         }
                         else
                         {
-                            txt_output.Text += "File type match's extension : " + Path.GetFileName(fileObjects[i].fileDirectory);
-                            txt_output.Text += Environment.NewLine;
+                            txt_output.SelectionColor = Color.Green;
+                            txt_output.SelectedText += Environment.NewLine + "File type match's extension : " + Path.GetFileName(fileObjects[i].fileDirectory);
+                            break;
                         }
                         
                     }
-                    else if (!fileObjects[i].fileHeaderInfo.Contains(filetpyes[j].fileHeader) && j == filetpyes.Count)
+                    else if (!fileObjects[i].fileHeaderInfo.Contains(filetpyes[j].fileHeader) && j == filetpyes.Count-1)
                     {
-                        txt_output.ForeColor = Color.Red;
-                        txt_output.Text += "File type does not match records : " + Path.GetFileName(fileObjects[i].fileDirectory);
-                        txt_output.Text += Environment.NewLine;
-                        txt_output.ForeColor = Color.Green;
+                        txt_output.SelectionColor = Color.Blue;
+                        txt_output.SelectedText += Environment.NewLine + "File type does not match records : " + Path.GetFileName(fileObjects[i].fileDirectory);
                     }
                 }
             }
@@ -141,12 +140,18 @@ namespace File_Extension_Checker
         private void btn_FixFIles_Click(object sender, EventArgs e)
         {
             clearTxt();
+            if (fileCorrection.Count==0)
+            {
+                txt_output.Text += "No files need to be fixed";
+                txt_output.Text += Environment.NewLine;
+            }
             for (int i = 0; i < fileCorrection.Count; i++)
             {
                 File.Move(fileCorrection[i].fileDirectory, Path.ChangeExtension(fileCorrection[i].fileDirectory, fileCorrection[i].fileExtension));
-                txt_output.Text += "File has been corrected: " + Path.GetFileName(fileCorrection[i].fileDirectory);
+                txt_output.Text += "File has been corrected: " + Path.GetFileNameWithoutExtension(fileCorrection[i].fileDirectory)+fileCorrection[i].fileExtension;
                 txt_output.Text += Environment.NewLine;
             }
+            fileCorrection.Clear(); 
         }
         //-------------------------Form Events-----------------------------
     }

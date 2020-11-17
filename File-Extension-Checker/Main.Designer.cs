@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.btn_SelectFiles = new DarkUI.Controls.DarkButton();
-            this.txt_output = new DarkUI.Controls.DarkTextBox();
             this.btn_FixFIles = new DarkUI.Controls.DarkButton();
             this.btn_ScanFiles = new DarkUI.Controls.DarkButton();
+            this.txt_output = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // btn_SelectFiles
@@ -44,23 +44,6 @@
             this.btn_SelectFiles.TabIndex = 0;
             this.btn_SelectFiles.Text = "Select Files";
             this.btn_SelectFiles.Click += new System.EventHandler(this.btn_SelectFiles_Click);
-            // 
-            // txt_output
-            // 
-            this.txt_output.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_output.BackColor = System.Drawing.Color.Black;
-            this.txt_output.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_output.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_output.ForeColor = System.Drawing.Color.Green;
-            this.txt_output.Location = new System.Drawing.Point(191, 12);
-            this.txt_output.Multiline = true;
-            this.txt_output.Name = "txt_output";
-            this.txt_output.ReadOnly = true;
-            this.txt_output.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txt_output.Size = new System.Drawing.Size(561, 468);
-            this.txt_output.TabIndex = 1;
             // 
             // btn_FixFIles
             // 
@@ -84,30 +67,42 @@
             this.btn_ScanFiles.Text = "Scan Files";
             this.btn_ScanFiles.Click += new System.EventHandler(this.btn_ScanFiles_Click);
             // 
+            // txt_output
+            // 
+            this.txt_output.BackColor = System.Drawing.Color.Black;
+            this.txt_output.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_output.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.txt_output.ForeColor = System.Drawing.Color.Green;
+            this.txt_output.Location = new System.Drawing.Point(191, 12);
+            this.txt_output.Name = "txt_output";
+            this.txt_output.ReadOnly = true;
+            this.txt_output.Size = new System.Drawing.Size(561, 468);
+            this.txt_output.TabIndex = 4;
+            this.txt_output.Text = "";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(752, 492);
+            this.Controls.Add(this.txt_output);
             this.Controls.Add(this.btn_ScanFiles);
             this.Controls.Add(this.btn_FixFIles);
-            this.Controls.Add(this.txt_output);
             this.Controls.Add(this.btn_SelectFiles);
             this.Name = "Main";
             this.Text = "File Extension Checker";
             this.Load += new System.EventHandler(this.Main_Load);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
         private DarkUI.Controls.DarkButton btn_SelectFiles;
-        private DarkUI.Controls.DarkTextBox txt_output;
         private DarkUI.Controls.DarkButton btn_FixFIles;
         private DarkUI.Controls.DarkButton btn_ScanFiles;
+        private System.Windows.Forms.RichTextBox txt_output;
     }
 }
 
